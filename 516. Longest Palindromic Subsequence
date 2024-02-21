@@ -35,14 +35,11 @@ public:
     int longestPalindromeSubseq(string s) {
         // converting this into LCS(subsequence) logic
         // Take the reverse of the given string
-        // Now in the original and the reverse string the longest common
-        // subsequence will be the longest palindromic string Right it makes
-        // sense
-        // As from the front and from the back the elements in a palindromic
-        // string are same , hence the palindrome string will exist in both the
+        // Now in the original and the reverse string the longest common subsequence will be the longest palindromic string 
+        // Right it makes sense
+        // As from the front and from the back the elements in a palindromic string are the same, hence the palindrome string will exist in both the
         // given and the reverse string in the same manner (it means the
-        // palindrome remains same in original and rev string as it's a palindrom
-        // , the rev of the string is same as the original version of it)
+        // palindrome remains the same in the original and rev string as it's a palindrome, the rev of the string is same as the original version of it)
         // Hence using this logic , we will find the Longest Common Subsequence
         // of the original and the reverse string and that will be the answer
         string revStr = s;
