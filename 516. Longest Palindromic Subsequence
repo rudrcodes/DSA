@@ -1,0 +1,52 @@
+`class Solution {
+public:
+    int solve(string& s1, string& s2) {
+        int n = s1.size();
+        int m = s2.size();
+        vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
+
+        // base case
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 0;
+        }
+
+        for (int i = 0; i <= m; i++) {
+            dp[0][i] = 0;
+        }
+
+        // call
+        for (int i = 1; i <= n; i++) {
+
+            for (int j = 1; j <= m; j++) {
+                int ans = 0;
+                if (s1[i - 1] == s2[j - 1]) {
+                    ans = 1 + dp[i - 1][j - 1];
+                } else {
+                    ans = max(dp[i - 1][j], dp[i][j - 1]);
+                }
+
+                dp[i][j] = ans;
+            }
+        }
+
+        return dp[n][m];
+    }
+
+    int longestPalindromeSubseq(string s) {
+        // converting this into LCS(subsequence) logic
+        // Take the reverse of the given string
+        // Now in the original and the reverse string the longest common
+        // subsequence will be the longest palindromic string Right it makes
+        // sense
+        // As from the front and from the back the elements in a palindromic
+        // string are same , hence the palindrome string will exist in both the
+        // given and the reverse string in the same manner (it means the
+        // palindrome remains same in original and rev string as it's a palindrom
+        // , the rev of the string is same as the original version of it)
+        // Hence using this logic , we will find the Longest Common Subsequence
+        // of the original and the reverse string and that will be the answer
+        string revStr = s;
+        reverse(begin(revStr), end(revStr));
+        return solve(s, revStr);
+    }
+};`
