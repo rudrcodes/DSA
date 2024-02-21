@@ -1,4 +1,4 @@
-`class Solution {
+class Solution {
 public:
     int solve(string& s1, string& s2) {
         int n = s1.size();
@@ -49,4 +49,4 @@ public:
         reverse(begin(revStr), end(revStr));
         return solve(s, revStr);
     }
-};`
+};
